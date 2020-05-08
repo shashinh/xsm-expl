@@ -12,17 +12,23 @@ Given a simple mathematical expression as input, in infix notation - perform the
 ## Input
 
 In the form of a text file "input.txt" containing the following example:
->2+(8/4)*(9/2)
+```
+2+(8/4)*(9/2)
+```
 
 ## Build
 Run the following commands:
->yacc -d parser.y\
->lex lexer.l\
->gcc -o parser lex.yy.c y.tab.c tree.c\
+```
+yacc -d parser.y
+lex lexer.l
+gcc -o parser lex.yy.c y.tab.c tree.c
+```
 
 ## Execute
 Run the following command:
->./parser
+```
+./parser
+```
 
 ## Output
 Following are the output artifacts:
