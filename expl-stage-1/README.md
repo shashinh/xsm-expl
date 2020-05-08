@@ -16,9 +16,9 @@ In the form of a text file "input.txt" containing the following example:
 
 ## Build
 Run the following commands:
->yacc -d parser.y
->lex lexer.l
->gcc -o parser lex.yy.c y.tab.c tree.c
+>yacc -d parser.y\
+>lex lexer.l\
+>gcc -o parser lex.yy.c y.tab.c tree.c\
 
 ## Execute
 Run the following command:
