@@ -1,8 +1,7 @@
-# EXPL NITC - Roadmap Stage 1
+# EXPL NITC - Roadmap Stage 2
 
 ## Task
-Given a simple mathematical expression as input, in infix notation - perform the following tasks:
-
+Given a basic EXPL program (refer definition)
 1. Define a grammar to capture the definition of the expression
 2. Parse the given input string according to this grammar
 3. Build an Abstract Syntax Tree
@@ -13,9 +12,11 @@ Given a simple mathematical expression as input, in infix notation - perform the
 
 In the form of a text file "input.txt" containing the following example:
 ```
-2+(8/4)*(9/2)
+    begin
+      z = 4+5*6-7;
+      write(d); 
+    end;
 ```
-
 ## Build
 Run the following commands:
 ```
@@ -23,7 +24,6 @@ yacc -d parser.y
 lex lexer.l
 gcc -o parser lex.yy.c y.tab.c tree.c
 ```
-
 ## Execute
 Run the following command:
 ```
@@ -32,13 +32,22 @@ Run the following command:
 
 ## Output
 Following are the output artifacts:
-1. ![](result.png) 
+1. a printed form of the generated AST\
+![](result.png) 
 2. a "target.xsm" executable file that contains the generated intermediate code corresponding to the input
 3. The target.xsm can be run on the XSM simulator to yield the evaluated output.
 
 ## Learning
-1. Lex and Yac syntax and usage
-2. Grammar Definition
-3. Compile-time data structures
-4. Intermediate Code Generation
-5. Rudimentary register management
+In addition to Stage 1 learnings:
+1. Advanced grammar definition, capable of capturing the definition of EXPL
+2. Syntax checking. If the input were to be:
+```
+    begin
+      z = 4+5*6-7 <--missing semicolon here
+      write(d); 
+    end;
+ ```
+
+The parser should be able to capture this:\
+![](result-error.png) \
+3. Static Storage Allocation. The input program has a variable "z". On the EXPL platform, such variables are statically allocated to one of 26 memory locations starting from 4096 (each corresponding to one alphabetical variable)
