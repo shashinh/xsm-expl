@@ -14,7 +14,7 @@ In the form of a text file "input.txt" containing the following example:
 ```
     begin
       z = 4+5*6-7;
-      write(d); 
+      write(z); 
     end;
 ```
 ## Build
